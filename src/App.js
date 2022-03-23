@@ -8,7 +8,7 @@ function App() {
 
     useEffect(() => {
         axios.get(info.backendUrl + "/locations").then((result) => {
-            console.log(result.data.response.locations);
+            //console.log(result.data.response.locations);
             setLocations(result.data.response.locations);
         });
     }, []);
