@@ -1,25 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import info from "./info";
-import WashLocation from "./components/WashLocation.js";
+import React from "react";
+import "./style.scss";
+import { Link, Outlet } from "react-router-dom";
 
-function App() {
-    const [locations, setLocations] = useState([]);
-
-    useEffect(() => {
-        axios.get(info.backendUrl + "/locations").then((result) => {
-            //console.log(result.data.response.locations);
-            setLocations(result.data.response.locations);
-        });
-    }, []);
-
+export default function App() {
     return (
         <div>
-            {locations.map((location) => {
-                return <WashLocation key={location.id} location={location} />;
-            })}
+            <h1>Hello wash world!</h1>
+            <nav>
+                <Link to="/">Index</Link>
+                <Link to="/home">Home</Link>
+            </nav>
+            <Outlet />
         </div>
     );
 }
-
-export default App;
