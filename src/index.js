@@ -2,8 +2,8 @@ import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import Home from "./Home";
-import Front from "./Front";
+import Front from "./pages/Front";
+import "./style.scss";
 
 const rootElement = document.getElementById("root");
 render(
@@ -12,7 +12,14 @@ render(
             <App />
             <Routes>
                 <Route path="/" element={<Front />} />
-                <Route path="/home" element={<Home />} />
+                <Route
+                    path="*"
+                    element={
+                        <main>
+                            <h1>Nothing here!</h1>
+                        </main>
+                    }
+                />
             </Routes>
         </React.StrictMode>
     </BrowserRouter>,
