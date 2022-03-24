@@ -15,14 +15,25 @@ function WashLocation({ location }) {
     }
 
     return (
-        <div
-            className={"wash-location-card " + location.status}
-            onClick={locationClicked}
-        >
-            {location.name}
-            {location.status === "available" && (
-                <i class="bi bi-arrow-right"></i>
-            )}
+        <div>
+            <input
+                type="radio"
+                class="btn-check"
+                id={"card-" + location.id}
+                autocomplete="off"
+                name="location-id"
+                onChange={locationClicked}
+                disabled={location.status !== "available" ? "on" : ""}
+            />
+            <label
+                class={"wash-location-card " + location.status}
+                for={"card-" + location.id}
+            >
+                {location.name}
+                {location.status === "available" && (
+                    <i class="bi bi-arrow-right"></i>
+                )}
+            </label>
         </div>
     );
 }

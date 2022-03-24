@@ -31,6 +31,9 @@ $Black: #000000;
     justify-content: space-between;
     cursor: pointer;
 }
+.btn-check:checked + .wash-location-card {
+    background-color: darken($Green, 10%);
+}
 .available {
     background-color: $Green;
     border-bottom: 2px solid darken($Green, 10%);
